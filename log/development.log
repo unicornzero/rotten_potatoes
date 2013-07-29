@@ -53,3 +53,49 @@ Served asset /application.js - 200 OK (11ms)
 
 Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-28 14:12:30 -0700
 Served asset /jquery.js - 200 OK (43ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2013-07-29 11:08:41 -0700
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.7ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Rendered movies/index.html.haml within layouts/application (336.1ms)
+Completed 200 OK in 743ms (Views: 726.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-29 11:08:46 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-29 11:08:47 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-29 11:08:47 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-29 11:08:47 -0700
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2013-07-29 11:46:25 -0700
+  Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" 
+Rendered movies/index.html.haml within layouts/application (65.5ms)
+Completed 200 OK in 87ms (Views: 80.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-29 11:46:25 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-29 11:46:26 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-29 11:46:26 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-29 11:46:26 -0700
+Served asset /application.js - 304 Not Modified (0ms)
