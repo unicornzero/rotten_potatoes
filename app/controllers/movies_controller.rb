@@ -10,8 +10,6 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.ratings_set
     @movies = sort_and_filter
-    @test_string = params[:ratings].keys if params[:ratings]
-    @test_string ||= "none?"
   end
 
   def new
