@@ -41,7 +41,11 @@ class MoviesController < ApplicationController
   end
 
   def check_box_toggle(rating)
-    get_ratings.include?(rating) if params[:ratings]
+    if params[:ratings]
+      get_ratings.include?(rating) 
+    else
+      true
+    end
   end
 
   private
@@ -73,7 +77,5 @@ class MoviesController < ApplicationController
   def get_ratings
     params[:ratings].keys
   end
-
-
 
 end
