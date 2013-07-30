@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  helper_method :check_box_toggle
 
   def show
     id = params[:id] # retrieve movie ID from URI route
@@ -41,6 +42,9 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def check_box_toggle(rating)
+    get_ratings.include?(rating) if params[:ratings]
+  end
 
   private
 
@@ -71,5 +75,7 @@ class MoviesController < ApplicationController
   def get_ratings
     params[:ratings].keys
   end
+
+
 
 end
