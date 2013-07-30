@@ -7,19 +7,10 @@ class MoviesController < ApplicationController
   end
 
   def index
-    if params[:sort_by]
-      sorter = params[:sort_by]
-      @movies = Movie.order(sorter + " " + "ASC")
-      if sorter == "title"
-        @title_class = "hilite"
-        @release_date_class = "release_date"
-      elsif sorter == "release_date"
-        @title_class = "title"
-        @release_date_class = "hilite"
-      end
-    else
-      @movies = Movie.all
-    end
+    @all_ratings = Movie.ratings_set
+    @movies = sort_and_filter
+    @test_string = params[:ratings].keys if params[:ratings]
+    @test_string ||= "none?"
   end
 
   def new
@@ -50,5 +41,35 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+
+  private
+
+  def sort_and_filter
+    if params[:ratings]
+      Movie.where(rating: get_ratings).order(sort_column)
+    else 
+      Movie.order(sort_column)
+    end
+  end
+
+  def sort_column
+    if params[:sort_by]
+      sorter = params[:sort_by]  
+      if sorter == "title"
+        @title_class = "hilite"
+        @release_date_class = "release_date"
+      elsif sorter == "release_date"
+        @title_class = "title"
+        @release_date_class = "hilite"
+      end
+      "#{sorter} ASC"
+    else
+      "null"
+    end
+  end
+
+  def get_ratings
+    params[:ratings].keys
+  end
 
 end
