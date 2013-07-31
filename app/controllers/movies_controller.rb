@@ -53,7 +53,7 @@ class MoviesController < ApplicationController
   def sort_and_filter
     if params[:ratings] && params[:sort_by]
       Movie.where(rating: get_ratings).order(sort_column)
-    elsif params[:rating]
+    elsif params[:ratings]
       Movie.where(rating: get_ratings)
     elsif params[:sort_by]
       Movie.order(sort_column)
