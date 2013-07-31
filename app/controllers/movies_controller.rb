@@ -51,10 +51,14 @@ class MoviesController < ApplicationController
   private
 
   def sort_and_filter
-    if params[:ratings]
+    if params[:ratings] && params[:sort_by]
       Movie.where(rating: get_ratings).order(sort_column)
-    else 
+    elsif params[:rating]
+      Movie.where(rating: get_ratings)
+    elsif params[:sort_by]
       Movie.order(sort_column)
+    else 
+      Movie.all
     end
   end
 
