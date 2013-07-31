@@ -97,11 +97,11 @@ class MoviesController < ApplicationController
     if params[:sort_by] || params[:ratings]
       return
     elsif session[:sort_by] && session[:ratings]
-      redirect_to movies_path(sort_by: session[:sort_by], ratings: params[:ratings])
+      redirect_to movies_path(sort_by: session[:sort_by], rating: params[:ratings])
     elsif session[:sort_by]
       redirect_to movies_path(sort_by: session[:sort_by])
     elsif session[:ratings]
-      redirect_to movies_path(ratings: params[:ratings])
+      redirect_to movies_path(rating: params[:ratings])
     end
   end
 
